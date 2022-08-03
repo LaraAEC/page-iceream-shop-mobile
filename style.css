@@ -1,0 +1,148 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--ff-heading: "Staatliches", cursive;
+	--ff-texting: "Palanquin", sans-serif;
+
+	--bg-primary: hsla(233, 100%, 97%, 1);
+	--bg-secondary: hsla(218, 17%, 62%, 1);
+	--bg-secondary-light: hsla(275, 18%, 79%, 1);
+	--bg-secondary-light2: hsla(312, 91%, 96%, 1);
+
+	--fc-primary: hsla(0, 0%, 100%, 1);
+	--fc-secondary: hsla(274, 84%, 12%, 1);
+	--fc-secondary-light: hsla(232, 17%, 35%, 1);
+
+	--font-size: 62.5%;
+	--fs-body: 1.6rem;
+	--fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+	--fs-heading-sm: clamp(3rem, 0.5rem + 3vw, 4rem);
+}
+
+body {
+	background: #e5e5e5;
+}
+
+.page {
+	max-width: 38.4rem;
+
+	margin: 0 auto;
+}
+
+.card img {
+	/*colocando a imagem para respeitar a largura que definimos na div page*/
+	width: 100%; /*sem isso a imagem transborda pra fora da caixa: seria um overflow*/
+	height: auto; /*altura automática pela sua proporção de largura, cada imagem tem seu tamaho, fica proporcional*/
+}
+
+header {
+	font-family: var(--ff-heading);
+	text-align: center;
+
+	padding-top: 3.2rem;
+	padding-bottom: 3.6rem;
+
+	background: var(--bg-secondary);
+
+	width: 100%;
+}
+
+header img {
+	margin-bottom: 4rem;
+	filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+}
+
+header h1 {
+	background: var(--bg-secondary-light);
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: var(--fs-heading);
+	color: var(--fc-primary);
+	line-height: 3.4rem;
+
+	letter-spacing: 0.05em;
+
+	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+main {
+	background: var(--bg-primary);
+
+	padding-left: 3.2rem;
+	padding-right: 3.2rem;
+	padding-bottom: 6rem;
+}
+
+main section {
+	display: grid;
+	flex-direction: column;
+
+	align-items: center;
+
+	gap: 3.2rem;
+}
+
+main p {
+	font-family: var(--ff-texting);
+	font-style: normal;
+	font-weight: 400;
+	font-size: var(--fs-body);
+
+	color: var(--fc-secondary);
+
+	line-height: 2rem;
+
+	text-align: center;
+
+	padding-top: 1.4rem;
+
+	margin-bottom: 6.3rem;
+}
+
+main section .card {
+	position: relative;
+	font-family: var(--ff-heading);
+}
+
+.card img { /*fazendo com que a imagem fique corresponente ao tamanho do cartão do layout*/
+  height: 41.6rem;
+  object-fit: cover;/*ideia de pegar o objeto imagem em si, vai considerar
+  a tag img como uma caixa e o source como o objeto*/
+ 
+  border-radius: 6px; /*deixamos em px mesmo, não causará grande diferemça, são 6px, mas são em um borda radio.*/
+  
+  transition: all 200ms; /*ajustuando o transform e o opacity para não serem repentinos*/
+}
+
+.card img:hover {
+  transform:scale(1.1); /*mouse em cima escala aumenta*/
+  opacity: 0.4; /*mouse em cima opacidade é acionada escondendo um pouco a imagem dando ênfase ao texto*/
+}
+
+main section .card h2 {
+	position: absolute;
+	top: 1.6rem;
+	right: 1.6rem;
+
+  border-radius: 2rem;
+  background: var(--bg-secondary-light2);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  color: var(--fc-secondary-light);
+
+  
+  padding: 0 1.6rem;
+  width: fit-content;/*fit=encaixar. Encaixar no conteúdo(vai acompanhar o conteúdo dele). Pois ele estava se alargando quando aumentamos a letra do h2*/
+  height: 3.8rem; /*não adianta pôr altura em spna, ele não recebe algumas
+  propriedades block. Então mudaremos para display inline-flex para receber a altura e ainda mexer no align:center.*/
+  
+  display: inline-flex;
+  align-items: center;
+
+}
+
+}
